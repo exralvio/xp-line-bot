@@ -59,6 +59,12 @@ class Route
                     continue;
                 }
 
+                $userId = $event->getUserId();
+                $groupId = $event->getGroupId();
+
+                $logger->info('User Id: ' . $userId);
+                $logger->info('Group Id: ' . $groupId);
+
                 $replyText = $event->getText();
                 $logger->info('Reply text: ' . $replyText);
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
